@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="list">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To-do List</title>
+
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="../js/angular.js"></script>
+
+    <script src="../js/app.js"></script>
+</head>
+<body ng-controller="NavController as navCtrl" ng-init="navCtrl.checkLocalStorage();">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">To-do List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href ng-click="navCtrl.setTab(1)" ng-class="{active:navCtrl.isTab(1)}">Your List<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href ng-click="navCtrl.setTab(2)" ng-class="{active:navCtrl.isTab(2)}">Create A Event</a>
+                <a class="nav-item nav-link" href ng-click="navCtrl.setTab(3)" ng-class="{active:navCtrl.isTab(3)}">Create A Categories</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <display-list ng-show="navCtrl.isTab(1)"></display-list>
+        <create-event ng-show="navCtrl.isTab(2)"></create-event>
+        <create-cate ng-show="navCtrl.isTab(3)"></create-cate>
+    </div>
+
+
+<script src="../js/popper.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

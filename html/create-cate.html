@@ -1,0 +1,21 @@
+<section ng-controller="NewCateController as cateCtrl">
+    <form ng-submit="cateCtrl.addCate();" novalidate>
+
+        <div class="form-group">
+            <label for="cateName" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-10">
+                <input ng-model="cateCtrl.newCate.name" type="text" class="form-control" id="cateName" placeholder="new category" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cateColor" class="col-sm-6 col-form-label">Color for your new category</label>
+            <div class="col-sm-8">
+                <input ng-model="cateCtrl.newCate.color" class="col-sm-4" type="color" id="cateColor" value="#000000">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark" value="submit" ng-click="navCtrl.setTab(1);">create</button>
+        <button class="btn btn-dark" value="Reset" ng-click="cateCtrl.newCate = {};">Reset</button>
+    </form>
+</section>

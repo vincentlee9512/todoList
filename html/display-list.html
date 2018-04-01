@@ -1,0 +1,38 @@
+<section ng-controller="ListController as listCtrl">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort by
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item" ng-click="listCtrl.sortList(0); listCtrl.print();">Deadline ↑</button>
+            <button class="dropdown-item" ng-click="listCtrl.sortList(1); listCtrl.print();">Deadline ↓</button>
+            <button class="dropdown-item" ng-click="listCtrl.sortList(2); listCtrl.print();">Category(A-Z) ↑</button>
+            <button class="dropdown-item" ng-click="listCtrl.sortList(3); listCtrl.print();">Category(A-Z) ↓</button>
+            <button class="dropdown-item" ng-click="listCtrl.sortList(4); listCtrl.print();">Incomplete → Complete</button>
+            <button class="dropdown-item" ng-click="listCtrl.sortList(5); listCtrl.print();">Complete → Incomplete</button>
+        </div>
+
+    </div>
+
+
+    <div id="display">
+        <h6 ng-show="listCtrl.noEvent();">Empty List</h6>
+        <div ng-show="!listCtrl.noEvent();">
+            <div class="row" id="cardPanel">
+                <div ng-repeat="todoEvent in navCtrl.todoEvents">
+                    <div class="card displayCards" style="width: 18rem; margin: 0.5rem;" ng->
+                        <div ng-style="{'background-color': navCtrl.findCateColor(todoEvent.cate).color }"> <br/></div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{todoEvent.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Category: {{todoEvent.cate}}</h6>
+                            <p class="card-text">Deadline: {{todoEvent.deadline}}</p>
+                            <p class="card-text">Description: {{todoEvent.description}}</p>
+                            <button class="btn btn-primary" ng-class="{'btn btn-dark' : listCtrl.isComplete(todoEvent)}" ng-click="listCtrl.completeThisEvent($event, todoEvent)">Complete</button>
+                            <button class="btn btn-danger" ng-click="listCtrl.removeThisEvent($event, todoEvent)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

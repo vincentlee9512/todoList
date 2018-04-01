@@ -1,0 +1,52 @@
+body{
+    font-family:  "Chippewa Falls" sans-serif;
+}
+
+nav{
+    margin-bottom: 1rem;
+}
+
+form{
+    margin: 0.5rem;
+}
+
+#display{
+    margin: 0.5rem;
+}
+
+#emptySign{
+    margin: 2rem;
+}
+
+.dropdown{
+    margin: 2rem;
+}
+
+.ng-invalid.ng-dirty{
+    border-color: red;
+}
+.ng-valid.ng-dirty{
+    border-color: green;
+}
+
+
+
+.cardHeaderReminder{
+    background-color: #4285F4;
+}
+
+.cardHeaderGrocery{
+    background-color: #34A853;
+}
+
+.cardHeaderAppointment{
+    background-color: #FBBC05;
+}
+
+.cardHeaderBills{
+    background-color: #EA4335;
+}
+
+.cardHeaderNone{
+    background-color: white;
+}
